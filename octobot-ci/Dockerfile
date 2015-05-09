@@ -1,5 +1,8 @@
 FROM ubuntu
 
+# Set required BUILD ENV
+ENV HUBOT_JANKY_URL=http://user:pass@somehost.com
+
 # Install Node.js and other deps
 RUN apt-get update && \
     apt-get -y install curl && \
@@ -14,10 +17,6 @@ COPY octobot /project
 
 # Define working dir
 WORKDIR /project
-
-# Janky is stupid, and has zero error checking around unbound
-# variables - so just nuke it. because i hate finicky things
-CMD if [ -f /project/scripts/janky.coffee ]; then rm scripts/janky.coffee fi
 
 # Run build routine
 CMD npm install
