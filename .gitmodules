@@ -1,0 +1,3 @@
+[submodule "octobot-ci/octobot"]
+	path = octobot-ci/octobot
+	url = git@github.com:PingPesto/octobot.git
