@@ -22,7 +22,5 @@ COPY octobot /project
 WORKDIR /project
 
 # Run build routine
-CMD npm install
-CMD bin/hubot -t
-CMD grunt
+CMD echo "Installing Dependencies...\n" && npm install && grunt
 
