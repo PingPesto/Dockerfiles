@@ -12,6 +12,9 @@ RUN apt-get update && \
 # Symlink node because packaging :(
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
+# Install grunt for build automation
+RUN npm install -g grunt-cli
+
 # Copy octobot source tree into /project
 COPY octobot /project
 
@@ -21,4 +24,5 @@ WORKDIR /project
 # Run build routine
 CMD npm install
 CMD bin/hubot -t
+CMD grunt
 
